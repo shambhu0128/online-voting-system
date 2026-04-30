@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8" />
+    <title>Online Voting Application</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #fff;
+            margin: 0;
+        }
+
+        section.center {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        h1.font-weight-bold {
+            font-size: 60px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            line-height: 1.5;
+            color: #f0f0f0;
+        }
+
+        .msg-box {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 500;
+            color: #ffdddd;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Feature boxes */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-box {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .feature-box h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .feature-box p {
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        /* How it works */
+        .how-it-works {
+            background: rgba(255,255,255,0.1);
+            padding: 30px 40px;
+            border-radius: 15px;
+            margin-top: 50px;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .how-it-works ol {
+            padding-left: 20px;
+            font-size: 18px;
+        }
+
+        /* CTA button */
+        .btn-primary {
+            display: inline-block;
+            background-color: #fff;
+            color: #2575fc;
+            padding: 15px 40px;
+            font-size: 22px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 40px;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #f0f0f0;
+            color: #1a4fd0;
+        }
+
+        /* Responsive */
+        @media(max-width:900px){
+            h1.font-weight-bold {
+                font-size: 48px;
+            }
+
+            .features {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .feature-box {
+                width: 80%;
+            }
+
+            .how-it-works {
+                width: 90%;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="center">
+        <!-- Hero Section -->
+        <h1 class="font-weight-bold">Online Voting Application</h1>
+        <p>A secure, transparent, and convenient way to cast your vote anytime, anywhere. Participate in elections with confidence and ease.</p>
+
+        <!-- Message -->
+        <div th:if=${session.msg} class="msg-box">
+            <h3 th:text="${session.msg}"></h3>
+            <th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features">
+            <div class="feature-box">
+                <h3>✅ Secure</h3>
+                <p>All votes are encrypted and stored securely to ensure transparency and accuracy.</p>
+            </div>
+            <div class="feature-box">
+                <h3>🌐 Accessible</h3>
+                <p>Vote from anywhere using your computer or mobile device. No long queues, no hassle.</p>
+            </div>
+            <div class="feature-box">
+                <h3>📊 Transparent</h3>
+                <p>Instantly view election results once voting ends. Fully automated and fair.</p>
+            </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="how-it-works">
+            <h2>How It Works</h2>
+            <ol>
+                <li> Register an account using your valid credentials.</li> 
+                <li> Login to the system and choose your preferred candidate.</li>
+                <li> Cast your vote safely and securely.</li>
+                <li> Admins can monitor votes and see final results after elections.</li>
+            </ol>
+        </div>
+
+        <!-- Call to Action -->
+       
+    </section>
+</body>
+</html>
