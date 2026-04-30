@@ -1,0 +1,62 @@
+<section class="center">
+
+<div class="container">
+    <div class="center">
+        <div class="layout">
+
+            <!-- User Details Column -->
+            <div class="col col-main">
+                <h2>User Details:</h2>
+                <img th:src="@{/image/user.png}" height="125px" alt="User Icon">
+
+                <table border='1' align='center'>
+                    <tr>
+                        <th>Name:</th>
+                        <th th:text="${user.name}"></th>
+                    </tr>
+                    <tr>
+                        <th>Email:</th>
+                        <th th:text="${user.email}"></th>
+                    </tr>
+                    <tr>
+                        <th>Phone:</th>
+                        <th th:text="${user.phone}"></th>
+                    </tr>
+                    <tr>
+                        <th>Status:</th>
+                        <th th:text="${user.hasVoted ? 'Already Voted' : 'Not Voted Yet'}"></th>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Voting Column -->
+            <div class="col col-complementary">
+
+                <div th:if="${session.vmsg}">
+                    <h3 th:text="${session.vmsg}" style="color:green"></h3>
+                </div>
+
+                <div th:unless="${user.hasVoted}">
+                    <form th:action="@{/user/vote}" method="post">
+                        <div th:each="candidate : ${candidates}">
+                            <input type="radio"
+                                   name="candidateId"
+                                   th:value="${candidate.id}"
+                                   required />
+                            <span th:text="${candidate.candidate}"></span><br><br>
+                        </div>
+                        <input type="submit" value="Vote">
+                    </form>
+                </div>
+
+                <div th:if="${user.hasVoted}">
+                    <h2 style="color:green">You have already voted!</h2>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</section>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+        }
+
+        .dashboard-container {
+            padding: 40px;
+        }
+
+        .dashboard-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .vote-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .vote-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .vote-card i {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .vote-card h3 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+
+        .vote-card p {
+            font-size: 28px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .blue { color: #0d6efd; }
+        .green { color: #198754; }
+        .orange { color: #fd7e14; }
+        .red { color: #dc3545; }
+        
+        .candidate-img {
+    width: 100px;       /* same width for all images */
+    height: 100px;      /* same height for all images */
+    object-fit: cover;  /* crops images to fit without stretching */
+    border-radius: 50%; /* makes it round */
+    margin-bottom: 10px;
+    border: 2px solid #eee; /* optional: adds nice border */
+}
+        
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-title">
+            📊 Admin Dashboard
+        </div>
+
+        <div class="card-grid">
+
+            <div class="vote-card">
+                <i class="fa-solid fa-user-tie blue"></i>
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEYEI5nU2R_FOfpmEBKHJW7TXrT7PKTdmtAw&s.jpg" class="candidate-img">
+<h3>Modi ji</h3>
+<p th:text="${c1}">0</p>
+
+    
+               
+            </div>
+
+            <div class="vote-card">
+                <i class="fa-solid fa-user green"></i>
+               <img src="https://i.pinimg.com/736x/dd/7e/7f/dd7e7f211cb2f8bdc0a0cbaf662aa4ad.jpg" class="candidate-img">
+<h3>Yogi ji</h3>
+<p th:text="${c2}">0</p>
+
+   
+
+    
+               
+            </div>
+
+            <div class="vote-card">
+                <i class="fa-solid fa-user-secret orange"></i>
+               <img src="https://www.aljazeera.com/wp-content/uploads/2022/02/2022-02-08KRAINE-CRISIS-PUTIN.jpg?resize=1800%2C1800.jpg" class="candidate-img">
+<h3>Putin</h3>
+<p th:text="${c3}">0</p>
+
+   
+               
+            </div>
+
+            <div class="vote-card">
+                <i class="fa-solid fa-user red"></i>
+               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/960px-Donald_Trump_official_portrait.jpg" class="candidate-img">
+<h3>Donald Trump</h3>
+<p th:text="${c4}">0</p>
+
+    
+               
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
